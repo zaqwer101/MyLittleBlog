@@ -17,7 +17,7 @@ class Author(models.Model):
 class Article(models.Model):
     author = models.ForeignKey(Author)
     title = models.CharField(max_length=128)
-    content = models.CharField()
+    content = models.CharField(max_length=65536)
 
     @classmethod
     def get_all(cls):
