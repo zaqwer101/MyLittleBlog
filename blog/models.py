@@ -13,6 +13,9 @@ class Author(models.Model):
         article.author = self
         article.save()
 
+    def __str__(self):
+        return self.name
+
 
 class Article(models.Model):
     author = models.ForeignKey(Author)
@@ -25,3 +28,6 @@ class Article(models.Model):
         for article in Article.objects.all():
             articles.append(article)
         return articles
+
+    def __str__(self):
+        return self.title
