@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
-from blog.models import Article
+from blog.models import Article, Author
 
 
 def blog_index(request):
@@ -18,3 +18,9 @@ def index(request):
 def get_article(request, article_id):
     article = Article.objects.all().filter(id=article_id)[0]
     return HttpResponse(str(article.title) + "<br>" + article.content)
+
+
+def get_author(request, author_id):
+    author = Author.objects.all().filter(id=author_id)[0]
+    return HttpResponse(author.name)
+
