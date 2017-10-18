@@ -7,7 +7,8 @@ from blog.models import Article
 
 
 def blog_index(request):
-    return HttpResponse("Look at my blog, my blog is amazing")
+    articles = Article.objects.all()
+    return render(request, 'blog/index.html', {'articles': articles})
 
 
 def index(request):
