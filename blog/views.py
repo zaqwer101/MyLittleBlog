@@ -17,7 +17,7 @@ def index(request):
 
 def get_article(request, article_id):
     article = Article.objects.all().filter(id=article_id)[0]
-    return HttpResponse(str(article.title) + "<br>" + article.content)
+    return render(request, 'blog/article.html', {'article': article})
 
 
 def get_author(request, author_id):
